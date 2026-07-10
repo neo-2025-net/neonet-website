@@ -1,0 +1,57 @@
+/* Center everything and add simple spacing */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 80vh;
+  font-family: sans-serif;
+  
+  /* Added padding so text doesn't touch the screen edges on mobile */
+  padding: 0 20px; 
+  
+  /* Fade-in Animation Trigger */
+  animation: fadeIn 2s ease-in-out;
+}
+
+.logo img {
+  /* Dynamic logo sizing: scalable but capped */
+  width: 100%;
+  max-width: 350px; 
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h1 {
+  max-width: 600px;
+  margin-bottom: 30px;
+  
+  /* Fluid typography: sizes nicely on both mobile and desktop */
+  font-size: clamp(1.8rem, 5vw, 3rem); 
+  line-height: 1.2;
+}
+
+.cta-button {
+  padding: 12px 28px; /* Slightly bigger target for mobile thumbs */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Makes the hover effect smooth */
+}
+
+.cta-button:hover {
+  background-color: #494949;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 70vh; /* Shorter height so it fits nicely on phone screens */
+  }
+}
+
+/* The Fade-in Logic */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

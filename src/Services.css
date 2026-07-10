@@ -1,0 +1,47 @@
+.services-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 40px;
+}
+
+/* Flexbox/Grid for responsiveness */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to drop to a new line on mobile */
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual Card Styling */
+.service-card {
+  flex: 1 1 300px; /* Grow, shrink, and aim for 300px base width */
+  max-width: 400px;
+  padding: 30px 20px;
+  border: 2px solid #333; /* Ugly/Simple wireframe border */
+  border-radius: 8px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.service-card p {
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
