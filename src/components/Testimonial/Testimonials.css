@@ -1,0 +1,72 @@
+.testimonials-section {
+  padding: 80px 20px;
+  background-color: #f9f9f9; /* Soft background to switch things up */
+  font-family: sans-serif;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonials-container h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.testimonials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.testimonial-card {
+  flex: 1 1 400px; /* Base width of 400px so 2 or 3 sit nicely per row */
+  max-width: 500px;
+  background-color: #ffffff;
+  border: 2px solid #111;
+  border-radius: 8px;
+  padding: 40px 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes the author info to the bottom */
+  position: relative;
+}
+
+.quote-mark {
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+  color: #ccc;
+  margin-bottom: -15px; /* Pulls the quote text slightly upward */
+}
+
+.testimonial-quote {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.testimonial-author strong {
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.testimonial-author span {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 4px;
+}

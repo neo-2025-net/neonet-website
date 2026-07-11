@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+
+/* Full width container sitting permanently at the top */
+.full-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+.nav-wrapper {
+  max-width: 1300px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left, .nav-right {
+  flex: 0 0 220px;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Logo Design with Sora Typography */
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  background: transparent;
+}
+
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+}
+
+.nav-logo-text {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+/* Center Menu Elements */
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links-list {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link-item {
+  color: #aaaaaa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.25s ease;
+}
+
+/* Clean micro hover accent line */
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-link-item:hover {
+  color: #ffffff;
+}
+
+.nav-link-item:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* RIGHT: Animated Rolling Dot CTA Button */
+.orbit-cta {
+  position: relative;
+  background: #121212;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: visible;
+  transition: border-color 0.2s;
+}
+
+/* The rolling point dot tracking the border edge */
+.orbit-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffffff;
+  top: -3px;
+  left: -3px;
+  offset-path: rect(0% 100% 100% 0% round 4px); /* Paths precisely around the border outline */
+  animation: orbitTrack 4s linear infinite;
+}
+
+@keyframes orbitTrack {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.orbit-cta:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Devices Layout */
+.desktop-only { display: flex; }
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: flex; }
+
+  .nav-left { flex: 1; }
+
+  .nav-mobile-trigger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .burger-bar {
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .burger-bar.open:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  .burger-bar.open:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .nav-mobile-menu {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: #121212;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .nav-mobile-menu.active {
+    max-height: 300px;
+  }
+
+  .mobile-links-list {
+    list-style: none;
+    padding: 20px 24px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-links-list a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+  }
+
+  .mobile-cta-link {
+    background: #ffffff;
+    color: #121212 !important;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+}

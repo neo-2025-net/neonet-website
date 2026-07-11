@@ -1,0 +1,74 @@
+.portfolio-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  font-family: sans-serif;
+}
+
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-container h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+/* Flexbox Grid for the Cards */
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.project-card {
+  flex: 1 1 450px; /* Gives them a wider, more premium footprint than services */
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #111;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Ugly placeholder box where images will go later */
+.project-image-placeholder {
+  background-color: #eee;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #666;
+  border-bottom: 2px solid #111;
+}
+
+.project-info {
+  padding: 25px;
+  text-align: left;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.project-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.project-info p {
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}

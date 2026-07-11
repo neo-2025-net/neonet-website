@@ -1,0 +1,76 @@
+.process-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  font-family: sans-serif;
+}
+
+.process-container {
+  max-width: 800px; /* Kept tight so it reads like a clean, linear timeline */
+  margin: 0 auto;
+}
+
+.process-container span {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.process-container h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Flex layout pairing the number side-by-side with the text */
+.process-step {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 30px;
+}
+
+.process-step:last-child {
+  border-bottom: none; /* Removes the bottom border on the last step */
+}
+
+.step-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111;
+  background-color: #f0f0f0;
+  padding: 10px 15px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.step-content {
+  text-align: left;
+}
+
+.step-content h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+  color: #111;
+}
+
+.step-content p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Mobile responsive patch */
+@media (max-width: 600px) {
+  .process-step {
+    flex-direction: column; /* Stack the number on top of the text on tiny screens */
+    gap: 15px;
+  }
+}
