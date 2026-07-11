@@ -5,14 +5,14 @@ import AboutUs from './components/About-us/About-us';
 import Portfolio from './components/Portfolio/Portfolio';
 import HowWeWork from './components/How-we-work/How-we-work';
 import Footer from './components/Footer/Footer';
-import PillNav from './Navbar/Navbar';
+import PillNav from './components/Navbar/Navbar';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <BrowserRouter>
       <div>
-        <PillNav />
+        {/* <PillNav /> */}
         <Hero_section />
         <Services /> 
         <Portfolio />

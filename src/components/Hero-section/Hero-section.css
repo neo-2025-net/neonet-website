@@ -7,12 +7,26 @@
   text-align: center;
   min-height: 80vh;
   font-family: sans-serif;
+  position: relative;
+  background-color: #121212;
+  
+  
+  /* FIX 1: This property creates a clean slate for layering */
+  
+  overflow: hidden; /* Ensures background elements do not spill outside borders */
   
   /* Added padding so text doesn't touch the screen edges on mobile */
   padding: 0 20px; 
   
   /* Fade-in Animation Trigger */
   animation: fadeIn 2s ease-in-out;
+  border-radius: 5px;
+  margin: 10px;
+  border: 1px solid #333;  
+
+  /* width: 100%;
+  min-height: 100vh;
+  min-width: 70vw; */
 }
 
 .logo img {
@@ -21,15 +35,30 @@
   max-width: 350px; 
   height: auto;
   margin-bottom: 20px;
+  
+  /* FIX 2: Activate z-index capabilities */
+  position: relative;
+  z-index: 2;
 }
 
 h1 {
-  max-width: 600px;
+  max-width: 900px;
   margin-bottom: 30px;
   
   /* Fluid typography: sizes nicely on both mobile and desktop */
   font-size: clamp(1.8rem, 5vw, 3rem); 
   line-height: 1.2;
+  color: #ffffff;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800; /* Replaced 'ultra-bold' with valid CSS numeric weight */
+  
+  /* FIX 2: Z-index only works if position is set to relative, absolute, or fixed */
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+  text-transform: uppercase;
+  line-height: 1.4;
+  word-spacing: 5px;
 }
 
 .cta-button {
@@ -37,6 +66,10 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease; /* Makes the hover effect smooth */
+  
+  /* FIX 2: Activate z-index capabilities */
+  position: relative;
+  z-index: 2;
 }
 
 .cta-button:hover {
@@ -49,9 +82,41 @@ h1 {
     min-height: 70vh; /* Shorter height so it fits nicely on phone screens */
   }
 }
+/* 
+@media (max-height: 900px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+} */
 
 /* The Fade-in Logic */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+.custom-rays {
+  /* FIX 3: Push it back completely while ignoring mouse events */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  pointer-events: none; /* Stops it from blocking clicks on your button */
+}
+
+.hero-content-inner {
+  position: relative;
+  z-index: 5;          /* Drastically raise it over the background */
+  isolation: isolate;  /* MANDATORY: Tells the browser to freeze all blending modes from bleeding past this barrier */
+}
+
+.hero-content-inner p {
+  color: #a3a3a3;
+  font-family: 'Sora', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-top: 0px;
+  margin-bottom: 40px;
 }

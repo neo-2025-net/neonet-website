@@ -1,0 +1,92 @@
+/* From Uiverse.io by joe-watson-sbf */ 
+.container {
+  color: rgb(255, 255, 255);
+  height: 100%;
+  /* position: inherit; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* align-content: space-around; */
+}
+
+/* .container::before, */
+/* .container::after {
+  content: "";
+  background-color: #fab5704c;
+  position: absolute;
+} */
+
+/* .container::before {
+  border-radius: 50%;
+  width: 6rem;
+  height: 4rem;
+  top: 30%;
+  right: 7%;
+} */
+
+/* .container::after {
+  content: "";
+  position: absolute;
+  height: 5rem;
+  top: 8%;
+  right: 5%;
+  border: 1px solid;
+} */
+
+.container .box {
+  width: 4em;
+  height: 0.1em;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  transition: all ease 0.3s;
+  box-shadow: 0px 0px 20px 1px #ffbb763f;
+  border: 1px solid rgba(255, 255, 255, 0.454);
+}
+
+.container .box {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* vertical-align: middle; */
+}
+
+.container .box .title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  /* line-height: 1; */
+  vertical-align: middle;
+  line-height: 0.2em;
+
+  /* margin-bottom: 1rem; */
+}
+
+/* .container .box div strong {
+  display: block;
+  margin-bottom: 0.5rem;
+} */
+
+/* .container .box div p {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.container .box div span {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.container .box div span:nth-child(3) {
+  font-weight: 500;
+  margin-right: 0.2rem;
+} */
