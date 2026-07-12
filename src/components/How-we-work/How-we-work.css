@@ -1,6 +1,6 @@
 .process-section {
   padding: 80px 20px;
-  background-color: #ffffff;
+  background-color: #000000;
   font-family: sans-serif;
 }
 
@@ -13,6 +13,7 @@
   display: block;
   text-align: center;
   margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .process-container h2 {
@@ -20,6 +21,7 @@
   text-align: center;
   margin-top: 10px;
   margin-bottom: 50px;
+  color: #ffffff;
 }
 
 .process-list {
@@ -44,8 +46,8 @@
 .step-number {
   font-size: 2rem;
   font-weight: bold;
-  color: #111;
-  background-color: #f0f0f0;
+  color: #000000;
+  background-color: #999898;
   padding: 10px 15px;
   border-radius: 4px;
   line-height: 1;
@@ -53,16 +55,16 @@
 
 .step-content {
   text-align: left;
-}
+}   
 
 .step-content h3 {
   margin: 0 0 10px 0;
   font-size: 1.4rem;
-  color: #111;
+  color: #ffffff;
 }
 
 .step-content p {
-  color: #555;
+  color: #ffffff;
   line-height: 1.6;
   margin: 0;
 }
