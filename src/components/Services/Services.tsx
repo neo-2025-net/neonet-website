@@ -1,5 +1,7 @@
 import React from 'react';
 import './Services.css';
+// import CardSwap, { Card } from '../../ui/Card-swap/Card-swap';
+import Cards from '../../ui/Cards/Cards';
 
 // This is our data for the 3 cards
 const servicesData = [
@@ -19,11 +21,18 @@ const servicesData = [
 
 function Services() {
   return (
-    <section className="services-section">
-      <h2>What We Do</h2>
-      
-      <div className="services-grid">
-        {/* We use .map() to loop through our cards easily */}
+    <section >
+      <div className="services-section">
+      <div className="services-header">
+        <h2>What We Do</h2>
+      </div>
+      {/* <div className='cards-container'>
+        {servicesData.map((service, index) => (
+          <Cards key={index} title={service.title} description={service.description} imgUrl="" />
+        ))}
+      </div> */}
+
+        <div className="services-grid">
         {servicesData.map((service, index) => (
           <div className="service-card" key={index}>
             <h3>{service.title}</h3>
@@ -31,8 +40,15 @@ function Services() {
           </div>
         ))}
       </div>
+
+      </div>
+
+      
+      
+      {/* </div> */}
     </section>
   );
 }
 
+// export default Services;
 export default Services;

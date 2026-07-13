@@ -1,7 +1,9 @@
 html, body{
     background-color: #ffffff;
-    scroll-behavior: smooth;
-    animation: linear;
+    scroll-behavior:smooth;
+    animation:linear;
+    scrollbar-color: #D4AF37 #121212;
+    scrollbar-width: thin;
 }
 
 /* @theme inline { */

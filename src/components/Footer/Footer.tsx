@@ -53,10 +53,13 @@ function Footer() {
         <div className="footer-buttons">
           <div className='footer-contact'>
             <h1>Contact us</h1>
-            <p>info@neonet.website</p>
+            <a href="mailto:info@neonet.website"><h2>info@neonet.website ↗</h2></a>
           </div>
           <div className = 'footer-socials'>
-            <SocialIcons />
+            {/* <SocialIcons /> */}
+            <a href="#"><h2>Instagram ↗</h2></a>
+            <a href="#"><h2>Linkedin ↗</h2></a>
+            <a href="#"><h2>X ↗</h2></a>
           </div>
         </div>
 
@@ -64,6 +67,10 @@ function Footer() {
           {/* <img src="/neonet-icon.svg" alt="NeoNet Logo" className="footer-logo" /> */}
           {/* <img src="/neonet-wordmark.svg" alt="NeoNet Wordmark" className="footer-wordmark" /> */}
           <img src="/footer-logo.svg" alt="NeoNet Logo" className="footer-logo" />
+        </div>
+
+        <div className='copyright'>
+          <p>&copy; {currentYear} NeoNet. All rights reserved.</p>
         </div>
 
       </div>
