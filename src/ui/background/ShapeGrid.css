@@ -1,0 +1,7 @@
+.shapegrid-canvas {
+  width: inherit;
+  height: inherit;
+  border: none;
+  display: flex;
+  /* overflow: hidden; */
+}

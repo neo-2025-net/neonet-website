@@ -1,78 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
+
+/* --- PREMIUM THEME FRAME (Same as Footer & About) --- */
+.main-process {
+  margin: 10px;               /* Matches the 10px canvas margin */
+  border-radius: 5px;         /* Standardized corner radius */
+  overflow: hidden;
+  border: 1px solid #333333;  /* Subdued border color matching footer */
+  background-color: #121212;  /* Brand deep black background */
+  box-sizing: border-box;
+}
+
 .process-section {
   padding: 80px 20px;
-  background-color: #000000;
-  font-family: sans-serif;
+  font-family: 'Sora', sans-serif; /* Applied premium typography */
 }
 
 .process-container {
-  max-width: 800px; /* Kept tight so it reads like a clean, linear timeline */
+  max-width: 800px; /* Kept tight to look like a premium editorial layout */
   margin: 0 auto;
 }
 
-.process-container span {
+/* --- HEADER STYLING --- */
+.process-container .section-label {
   display: block;
   text-align: center;
-  margin-bottom: 20px;
-  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #D4AF37;            /* Brand Accent Gold */
+  margin-bottom: 12px;
 }
 
 .process-container h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 50px;
+  margin-top: 0;
+  margin-bottom: 60px;
   color: #ffffff;
 }
 
+/* --- LIST & STEPS --- */
 .process-list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 }
 
-/* Flex layout pairing the number side-by-side with the text */
 .process-step {
   display: flex;
   gap: 30px;
   align-items: flex-start;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #222222; /* High-end dark subtle divider */
   padding-bottom: 30px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  
+  /* ENTRY ANIMATION: Triggers instantly as the page loads */
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Staggered load delays for smooth cascade */
+.process-step:nth-child(1) { animation-delay: 0.1s; }
+.process-step:nth-child(2) { animation-delay: 0.2s; }
+.process-step:nth-child(3) { animation-delay: 0.3s; }
+.process-step:nth-child(4) { animation-delay: 0.4s; }
+
+/* Subtle highlight shift on user hover */
+.process-step:hover {
+  transform: translateX(8px); /* Clean, premium left-to-right shift */
+  border-color: #D4AF37;      /* Active gold divider highlights */
 }
 
 .process-step:last-child {
-  border-bottom: none; /* Removes the bottom border on the last step */
+  border-bottom: none;
 }
 
+/* --- THE NUMBER BADGE --- */
 .step-number {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #000000;
-  background-color: #999898;
-  padding: 10px 15px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  background-color: #1a1a1a;  /* Charcoal background */
+  border: 1px solid #333333;  /* Framed style */
+  padding: 10px 18px;
   border-radius: 4px;
   line-height: 1;
+  transition: all 0.3s ease;
 }
 
+.process-step:hover .step-number {
+  color: #121212;
+  background-color: #D4AF37;  /* Number badge flashes Gold on hover */
+  border-color: #D4AF37;
+}
+
+/* --- STEP TEXT CONTENT --- */
 .step-content {
   text-align: left;
 }   
 
 .step-content h3 {
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
   font-size: 1.4rem;
+  font-weight: 700;
   color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.process-step:hover .step-content h3 {
+  color: #D4AF37;            /* Title goes Gold on step hover */
 }
 
 .step-content p {
-  color: #ffffff;
+  color: #a3a3a3;            /* High-contrast accessible grey for descriptions */
   line-height: 1.6;
   margin: 0;
 }
 
-/* Mobile responsive patch */
+/* --- ENTRY ANIMATION TIMELINE KEYFRAMES --- */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- MOBILE RESPONSIVE PATCH --- */
 @media (max-width: 600px) {
   .process-step {
-    flex-direction: column; /* Stack the number on top of the text on tiny screens */
+    flex-direction: column;  /* Standard visual block stack on mobile */
     gap: 15px;
+    padding-bottom: 25px;
+  }
+  
+  .process-step:hover {
+    transform: translateY(-4px); /* Moves upward on touch/hover instead of left-to-right on desktop */
   }
 }

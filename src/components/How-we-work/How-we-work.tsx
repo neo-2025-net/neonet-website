@@ -26,21 +26,24 @@ const stepsData = [
 
 function HowWeWork() {
   return (
-    <section className="process-section">
-      <div className="process-container">
-        <span className="section-label">The Process</span>
-        <h2>How We Work Together</h2>
-        
-        <div className="process-list">
-          {stepsData.map((step, index) => (
-            <div className="process-step" key={index}>
-              <div className="step-number">{step.number}</div>
-              <div className="step-content">
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+    /* CHANGE: Wrapped inside 'main-process' to mirror the 10px footer layout margin */
+    <section className="main-process">
+      <div className="process-section">
+        <div className="process-container">
+          <span className="section-label">The Process</span>
+          <h2>How We Work Together</h2>
+          
+          <div className="process-list">
+            {stepsData.map((step, index) => (
+              <div className="process-step" key={index}>
+                <div className="step-number">{step.number}</div>
+                <div className="step-content">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
