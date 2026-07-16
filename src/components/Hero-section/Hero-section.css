@@ -1,125 +1,132 @@
-/* Center everything and add simple spacing */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
+
 .hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 98vh;
-  font-family: sans-serif;
+  min-height: 98vh; /* Tight desktop viewport constraint */
+  font-family: 'Sora', sans-serif;
   position: relative;
-  background-color: #121212;
-  
-  
-  /* FIX 1: This property creates a clean slate for layering */
-  
-  overflow: hidden; /* Ensures background elements do not spill outside borders */
-  
-  /* Added padding so text doesn't touch the screen edges on mobile */
-  padding: 0 20px; 
-  
-  /* Fade-in Animation Trigger */
-  animation: fadeIn 2s ease-in-out;
+  background-color: #0b0b0b; /* Slightly deeper luxury black baseline */
+  overflow: hidden; 
+  padding: 0 24px; 
   border-radius: 5px;
   margin: 10px;
-  border: 1px solid #333;  
-
-  /* width: 100%;
-  min-height: 100vh;
-  min-width: 70vw; */
+  border: 1px solid #262626; /* Ultra-subtle high-end border tone */
+  box-sizing: border-box;
 }
 
-.logo img {
-  /* Dynamic logo sizing: scalable but capped */
-  width: 100%;
-  max-width: 350px; 
-  height: auto;
-  margin-bottom: 20px;
-  
-  /* FIX 2: Activate z-index capabilities */
-  position: relative;
-  z-index: 2;
-}
-
-h1 {
-  /* max-width: 60vw; */
-  margin-bottom: 30px;
-  
-  /* Fluid typography: sizes nicely on both mobile and desktop */
-  font-size: clamp(1.8rem, 5vw, 4rem); 
-  /* font-size: 4rem; */
-  line-height: 1.2;
-  color: #ffffff;
-  font-family: 'Sora', sans-serif;
-  font-weight: 800; /* Replaced 'ultra-bold' with valid CSS numeric weight */
-  
-  /* FIX 2: Z-index only works if position is set to relative, absolute, or fixed */
-  position: relative;
-  z-index: 2;
-  background-color: transparent;
-  text-transform: uppercase;
-  line-height: 1.4;
-  padding: 0 10vw;
-  
-  word-spacing: 10px;
-}
-
-.cta-button {
-  padding: 12px 28px; /* Slightly bigger target for mobile thumbs */
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease; /* Makes the hover effect smooth */
-  
-  /* FIX 2: Activate z-index capabilities */
-  position: relative;
-  z-index: 2;
-}
-
-.cta-button:hover {
-  background-color: #494949;
-  color: #fff;
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    min-height: 90vh; /* Shorter height so it fits nicely on phone screens */
-  }
-}
-/* 
-@media (max-height: 900px) {
-  .hero-section {
-    min-height: 60vh;
-  }
-} */
-
-/* The Fade-in Logic */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+/* --- THE LAYER CONTROL ENGINE --- */
 .custom-rays {
-  /* FIX 3: Push it back completely while ignoring mouse events */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; 
-  pointer-events: none; /* Stops it from blocking clicks on your button */
+  z-index: 1; /* Sits perfectly behind typography layer */
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .hero-content-inner {
   position: relative;
-  z-index: 5;          /* Drastically raise it over the background */
-  isolation: isolate;  /* MANDATORY: Tells the browser to freeze all blending modes from bleeding past this barrier */
+  z-index: 5; /* Forces foreground text above everything */
+  max-width: 900px; /* Keeps line length tight and premium looking */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- VISUAL STYLES & TYPOGRAPHY --- */
+.hero-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #D4AF37; /* NeoNet Gold */
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem); 
+  line-height: 1.15;
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 24px;
+  letter-spacing: -1px; /* Premium compressed letter-spacing look */
+  word-spacing: 4px;
+  
+  /* Text Shadow Mask: Creates gorgeous isolation depth against background light rays */
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.65);
+  
+  opacity: 0;
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.4s;
 }
 
 .hero-content-inner p {
   color: #a3a3a3;
-  font-family: 'Sora', sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
-  margin-top: 0px;
-  margin-bottom: 40px;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 44px;
+  max-width: 600px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  opacity: 0;
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+.hero-cta-wrapper {
+  opacity: 0;
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.8s;
+  transition: transform 0.2s ease;
+}
+
+.hero-cta-wrapper:hover {
+  transform: scale(1.03); /* Soft macro-interaction scaling */
+}
+
+/* --- SOPHISTICATED LAYER OVERRIDES FOR DEEP GLASS STACK --- */
+.hero-content-inner > div:first-child {
+  margin-bottom: 30px;
+  transform: scale(1.05);
+}
+
+/* --- PREMIUM MOTION ENGINE --- */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- RESPONSIVE MOBILE OPTIMIZATION --- */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 92vh; /* More compact viewport on phones to shield fold overflow */
+    padding: 0 20px;
+    margin: 10px;
+  }
+  
+  h1 {
+    letter-spacing: 0px;
+    line-height: 1.25;
+    word-spacing: 2px;
+  }
 }

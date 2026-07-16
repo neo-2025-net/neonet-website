@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
 
-/* --- PREMIUM THEME FRAME (Same as Footer & About) --- */
-.main-process {
-  margin: 10px;               /* Matches the 10px canvas margin */
-  border-radius: 5px;         /* Standardized corner radius */
+/* --- MAIN BRAND CANVAS FRAME --- */
+.main-process-frame {
+  margin: 10px;
+  border-radius: 5px;
   overflow: hidden;
-  border: 1px solid #333333;  /* Subdued border color matching footer */
-  background-color: #121212;  /* Brand deep black background */
+  border: 1px solid #333333;
+  background: radial-gradient(circle at 50% 50%, #262216 0%, #0A0A0A 100%);
   box-sizing: border-box;
 }
 
 .process-section {
-  padding: 80px 20px;
-  font-family: 'Sora', sans-serif; /* Applied premium typography */
+  padding: 90px 20px;
+  font-family: 'Sora', sans-serif;
 }
 
 .process-container {
-  max-width: 800px; /* Kept tight to look like a premium editorial layout */
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -28,7 +28,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #D4AF37;            /* Brand Accent Gold */
+  color: #D4AF37;
   margin-bottom: 12px;
 }
 
@@ -37,108 +37,208 @@
   font-weight: 800;
   text-align: center;
   margin-top: 0;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
   color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
-/* --- LIST & STEPS --- */
+/* --- CONNECTED STEP ASSEMBLY LINE --- */
 .process-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
+  position: relative;
+}
+
+/* BACKGROUND SPINE WIRE: Steady base guide */
+.process-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 26px;
+  width: 2px;
+  height: 100%;
+  background-color: #1f1c15;
+  z-index: 1;
+}
+
+/* ACTIVE FOREGROUND PULSE LINE: Controlled by trigger class */
+.process-list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 26px;
+  width: 2px;
+  background: linear-gradient(to bottom, #D4AF37 70%, transparent 100%);
+  z-index: 2;
+  height: 0%; /* Resets cleanly when out of view */
+  transition: height 0.3s ease-out;
+}
+
+/* Fires connection wire down when section is inside active view */
+.animate-trigger .process-list::after {
+  animation-name: fillConnectionTrack;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes fillConnectionTrack {
+  0% { height: 0%; }
+  100% { height: 100%; }
 }
 
 .process-step {
   display: flex;
-  gap: 30px;
+  gap: 35px;
   align-items: flex-start;
-  border-bottom: 1px solid #222222; /* High-end dark subtle divider */
-  padding-bottom: 30px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  
-  /* ENTRY ANIMATION: Triggers instantly as the page loads */
-  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  position: relative;
+  padding-bottom: 20px;
 }
 
-/* Staggered load delays for smooth cascade */
-.process-step:nth-child(1) { animation-delay: 0.1s; }
-.process-step:nth-child(2) { animation-delay: 0.2s; }
-.process-step:nth-child(3) { animation-delay: 0.3s; }
-.process-step:nth-child(4) { animation-delay: 0.4s; }
-
-/* Subtle highlight shift on user hover */
-.process-step:hover {
-  transform: translateX(8px); /* Clean, premium left-to-right shift */
-  border-color: #D4AF37;      /* Active gold divider highlights */
+.step-number-wrapper {
+  position: relative;
+  z-index: 3;
 }
 
-.process-step:last-child {
-  border-bottom: none;
-}
-
-/* --- THE NUMBER BADGE --- */
+/* --- THE STEP NUMBER CELL NODES --- */
 .step-number {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  color: #ffffff;
-  background-color: #1a1a1a;  /* Charcoal background */
-  border: 1px solid #333333;  /* Framed style */
-  padding: 10px 18px;
-  border-radius: 4px;
+  color: #555555;
+  background-color: #0A0A0A;
+  border: 1px solid #222222;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   line-height: 1;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, transform 0.3s ease;
+  
+  /* Initial hidden state when scrolled out of view */
+  opacity: 0;
+  transform: scale(0.6);
 }
 
-.process-step:hover .step-number {
-  color: #121212;
-  background-color: #D4AF37;  /* Number badge flashes Gold on hover */
-  border-color: #D4AF37;
+/* Sequential node expansion mapping triggered only inside tracking class viewport */
+.animate-trigger .process-step:nth-child(1) .step-number { 
+  animation: lightUpNode 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; 
+}
+.animate-trigger .process-step:nth-child(2) .step-number { 
+  animation: lightUpNode 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards; 
+}
+.animate-trigger .process-step:nth-child(3) .step-number { 
+  animation: lightUpNode 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards; 
+}
+.animate-trigger .process-step:nth-child(4) .step-number { 
+  animation: lightUpNode 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.7s forwards; 
 }
 
-/* --- STEP TEXT CONTENT --- */
+@keyframes lightUpNode {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    color: #ffffff;
+    border-color: #D4AF37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+  }
+}
+
+/* --- TEXT CONTENT AREA --- */
 .step-content {
   text-align: left;
-}   
+  padding-top: 12px;
+  opacity: 0;
+  transform: translateX(15px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Sequential text reveal triggered inside tracking class viewport */
+.animate-trigger .process-step:nth-child(1) .step-content { 
+  animation: slideInText 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; 
+}
+.animate-trigger .process-step:nth-child(2) .step-content { 
+  animation: slideInText 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards; 
+}
+.animate-trigger .process-step:nth-child(3) .step-content { 
+  animation: slideInText 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards; 
+}
+.animate-trigger .process-step:nth-child(4) .step-content { 
+  animation: slideInText 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards; 
+}
+
+@keyframes slideInText {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 .step-content h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.4rem;
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
   transition: color 0.3s ease;
 }
 
-.process-step:hover .step-content h3 {
-  color: #D4AF37;            /* Title goes Gold on step hover */
-}
-
 .step-content p {
-  color: #a3a3a3;            /* High-contrast accessible grey for descriptions */
-  line-height: 1.6;
+  color: #a3a3a3;
+  line-height: 1.65;
   margin: 0;
+  font-size: 1rem;
 }
 
-/* --- ENTRY ANIMATION TIMELINE KEYFRAMES --- */
-@keyframes slideUpFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Interactive hover configurations */
+.process-step:hover .step-number {
+  background-color: #D4AF37 !important;
+  color: #0A0A0A !important;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5) !important;
 }
 
-/* --- MOBILE RESPONSIVE PATCH --- */
+.process-step:hover .step-content h3 {
+  color: #D4AF37;
+}
+
+/* --- MOBILE RESPONSIVE ENGINE --- */
 @media (max-width: 600px) {
-  .process-step {
-    flex-direction: column;  /* Standard visual block stack on mobile */
-    gap: 15px;
-    padding-bottom: 25px;
+  .process-section {
+    padding: 60px 15px;
   }
   
-  .process-step:hover {
-    transform: translateY(-4px); /* Moves upward on touch/hover instead of left-to-right on desktop */
+  .process-list::before {
+    left: 20px;
+  }
+  .process-list::after {
+    left: 20px;
+  }
+  
+  .process-step {
+    gap: 20px;
+  }
+  
+  .step-number {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+  
+  .step-content {
+    padding-top: 6px;
+  }
+  
+  .step-content h3 {
+    font-size: 1.3rem;
   }
 }

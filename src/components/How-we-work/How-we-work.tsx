@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './How-we-work.css';
 
 const stepsData = [
@@ -25,18 +25,42 @@ const stepsData = [
 ];
 
 function HowWeWork() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Automatically turns the animation state true/false as user scrolls up or down
+        setIsIntersecting(entry.isIntersecting);
+      },
+      {
+        threshold: 0.15, // Triggers when 15% of the section enters the frame
+        rootMargin: '0px 0px -100px 0px' // Offset to ensure elegant scrolling execution
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    /* CHANGE: Wrapped inside 'main-process' to mirror the 10px footer layout margin */
-    <section className="main-process">
+    <section className="main-process-frame" ref={sectionRef}>
       <div className="process-section">
-        <div className="process-container">
+        {/* Dynamic trigger class bound to the intersection observer state */}
+        <div className={`process-container ${isIntersecting ? 'animate-trigger' : ''}`}>
           <span className="section-label">The Process</span>
           <h2>How We Work Together</h2>
           
           <div className="process-list">
             {stepsData.map((step, index) => (
               <div className="process-step" key={index}>
-                <div className="step-number">{step.number}</div>
+                <div className="step-number-wrapper">
+                  <div className="step-number">{step.number}</div>
+                </div>
                 <div className="step-content">
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>

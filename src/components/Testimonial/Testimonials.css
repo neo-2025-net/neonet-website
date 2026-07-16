@@ -1,72 +1,138 @@
-.testimonials-section {
-  padding: 80px 20px;
-  background-color: #f9f9f9; /* Soft background to switch things up */
-  font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
+
+/* --- LAYOUT WRAPPER CORE --- */
+.testimonials-horizon-frame {
+  margin: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #333333;
+  background: radial-gradient(circle at 50% 50%, #262216 0%, #0A0A0A 100%);
+  box-sizing: border-box;
 }
 
-.testimonials-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.testimonials-container h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  margin-top: 10px;
-  margin-bottom: 40px;
-}
-
-.testimonials-grid {
+.testimonial-horizon-layout {
+  padding: 130px 20px;
+  font-family: 'Sora', sans-serif;
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
   justify-content: center;
 }
 
-.testimonial-card {
-  flex: 1 1 400px; /* Base width of 400px so 2 or 3 sit nicely per row */
-  max-width: 500px;
-  background-color: #ffffff;
-  border: 2px solid #111;
-  border-radius: 8px;
-  padding: 40px 30px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Pushes the author info to the bottom */
+.testimonial-horizon-container {
+  max-width: 850px;
+  width: 100%;
   position: relative;
 }
 
-.quote-mark {
-  font-size: 4rem;
-  font-family: Georgia, serif;
-  line-height: 1;
-  color: #ccc;
-  margin-bottom: -15px; /* Pulls the quote text slightly upward */
+.testimonial-horizon-container .section-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #D4AF37;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-.testimonial-quote {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
-  font-style: italic;
-  margin-bottom: 25px;
+/* --- CINEMATIC FADE ENGINE --- */
+.testimonial-text-viewport {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
 }
 
-.testimonial-author {
+.testimonial-text-viewport.is-fading {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+/* --- TYPOGRAPHIC SCALING --- */
+.horizon-quote-text {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.55;
+  color: #ffffff;
+  margin: 0 0 40px 0;
+  letter-spacing: -0.5px;
+}
+
+/* --- CREDIBILITY FOOTER ATTACHMENT --- */
+.horizon-attribution-row {
   display: flex;
-  flex-direction: column;
-  border-top: 1px solid #eee;
-  padding-top: 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
 }
 
-.testimonial-author strong {
-  font-size: 1.1rem;
-  color: #111;
+.horizon-client-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.testimonial-author span {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 4px;
+.horizon-verify-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #D4AF37;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+}
+
+.horizon-verify-link:hover {
+  opacity: 0.8;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* --- THE LINEAR PROGRESS HORIZON BEAM --- */
+.horizon-progress-track {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.07);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.horizon-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  transform: translateX(-100%);
+  animation-name: progressBeamMovement;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes progressBeamMovement {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* --- MOBILE COMPACTION RESPONSIVENESS --- */
+@media (max-width: 600px) {
+  .testimonial-horizon-layout {
+    padding: 80px 15px;
+  }
+  
+  .horizon-quote-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  .horizon-attribution-row {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
 }

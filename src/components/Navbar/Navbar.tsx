@@ -1,80 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+// import { handleScrollToContact } from '../../ContactForm/ContactForm';
 
-const NAV_ITEMS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'About', href: '#about' },
-  { label: 'Process', href: '#process' }
-];
+function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-const PillNav: React.FC = () => {
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      // Triggers the compact glass transformation after scrolling 40px
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScrollToContact = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  };
 
   return (
-    <nav className="full-navbar">
-      <div className="nav-wrapper">
+    <nav className={`navbar-capsule-wrapper ${isScrolled ? 'is-compact' : ''}`}>
+      <div className="navbar-container">
         
-        {/* LEFT: Logo with Text styled in Sora */}
-        <div className="nav-left">
-          <a href="/" className="nav-logo-link">
-            <img src="/neonet-icon.svg" alt="NeoNet Logo" className="nav-logo-img" />
-            <span className="nav-logo-text">NeoNet</span>
+        {/* LOGO AREA */}
+        <div className="navbar-logo">
+          NEO<span>NET</span>
+        </div>
+
+        {/* NAVIGATION LINKS */}
+        <div className="navbar-links">
+          <a href="#services" className="nav-link">Services</a>
+          <a href="#process" className="nav-link">Process</a>
+          <a href="#work" className="nav-link">Work</a>
+        </div>
+
+        {/* PREMIUM ACTION BUTTON */}
+        <div className="navbar-action">
+          <a> <button onClick={handleScrollToContact} className="your-navbar-button-class"> 
+            Let's Talk
+            </button>
           </a>
         </div>
 
-        {/* MIDDLE: Simple, clean links with CSS animations */}
-        <div className="nav-center desktop-only">
-          <ul className="nav-links-list">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="nav-link-item">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* RIGHT: High-conversion CTA with rolling point border */}
-        <div className="nav-right desktop-only">
-          <a href="mailto:your-email@neonet.com" className="orbit-cta">
-            <span className="orbit-dot"></span>
-            Secure Infrastructure
-          </a>
-        </div>
-
-        {/* Mobile Hamburger Trigger */}
-        <button 
-          className="nav-mobile-trigger mobile-only" 
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-          aria-label="Toggle Menu"
-        >
-          <span className={`burger-bar ${isMobileOpen ? 'open' : ''}`}></span>
-          <span className={`burger-bar ${isMobileOpen ? 'open' : ''}`}></span>
-        </button>
-
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      <div className={`nav-mobile-menu ${isMobileOpen ? 'active' : ''}`}>
-        <ul className="mobile-links-list">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} onClick={() => setIsMobileOpen(false)}>
-                {item.label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a href="mailto:your-email@neonet.com" className="mobile-cta-link" onClick={() => setIsMobileOpen(false)}>
-              Contact Us
-            </a>
-          </li>
-        </ul>
       </div>
     </nav>
   );
-};
+}
 
-export default PillNav;
+export default Navbar;

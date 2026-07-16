@@ -5,19 +5,23 @@ import AboutUs from './components/About-us/About-us';
 import Portfolio from './components/Portfolio/Portfolio';
 import HowWeWork from './components/How-we-work/How-we-work';
 import Footer from './components/Footer/Footer';
-import PillNav from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter } from 'react-router-dom';
+import Testimonials from './components/Testimonial/Testimonials';
+import ContactForm from './components/Form/ContactForm';
 
 function App() {
   return (
     <BrowserRouter>
       <div>
-        {/* <PillNav /> */}
+        <Navbar />
         <Hero_section />
         <Services /> 
         <Portfolio />
+        <Testimonials />
         <AboutUs />
         <HowWeWork />
+        <ContactForm />
         <Footer />
       </div>
     </BrowserRouter>

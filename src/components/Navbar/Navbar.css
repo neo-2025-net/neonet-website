@@ -1,224 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
 
-/* Full width container sitting permanently at the top */
-.full-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 65px;
-  background: rgba(18, 18, 18, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 1000;
-  font-family: sans-serif;
+/* --- ARCHITECTURAL EDGE-TO-EDGE SPAN --- */
+.navbar-capsule-wrapper {
+position: fixed;
+  /* Placed right below the top 10px border margin gap */
+  top: 10px; 
+  left: 10px; 
+  width: calc(100% - 20px); 
+  z-index: 9999; 
+  
+  /* Elite glass filter core matrix */
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
+  border-bottom: 1px solid #262216; 
+  border-radius: 5px;
+  padding: 20px 40px; 
+  box-sizing: border-box;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-wrapper {
-  max-width: 1300px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 24px;
+.navbar-capsule-wrapper::before {
+  content: '';
+  position: absolute;
+  /* Extends upward exactly 10px to perfectly cover the open gap above the navbar */
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  
+  /* Matches your global body background color exactly */
+  background-color: #FAF9F6;
+  z-index: 10;
+}
+
+/* Compact sizing adjustments when user scrolls down the viewport page */
+.navbar-capsule-wrapper.is-compact {
+  padding: 14px 40px;
+  background: rgba(8, 8, 8, 0.95); /* Tighter glass mix for scroll clarity */
+  border-bottom-color: #D4AF37;
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6); */
+  border-radius: 5px;
+  z-index: 11;
+}
+
+/* --- GRID INTERACTION ALIGNMENT --- */
+.navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.nav-left, .nav-right {
-  flex: 0 0 220px;
-}
-
-.nav-right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* Logo Design with Sora Typography */
-.nav-logo-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  background: transparent;
-}
-
-.nav-logo-img {
-  height: 28px;
-  width: auto;
-}
-
-.nav-logo-text {
   font-family: 'Sora', sans-serif;
-  font-weight: 700;
-  font-size: 1.25rem;
+  max-width: 1400px; /* Keeps contents perfectly centered on wide monitors */
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- TYPOGRAPHIC BRAND MARK --- */
+.navbar-logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: 1.5px;
   color: #ffffff;
-  letter-spacing: -0.5px;
 }
 
-/* Center Menu Elements */
-.nav-center {
-  flex: 1;
+.navbar-logo span {
+  color: #D4AF37;
+}
+
+/* --- LINK CORE --- */
+.navbar-links {
   display: flex;
-  justify-content: center;
+  gap: 40px;
 }
 
-.nav-links-list {
-  list-style: none;
-  display: flex;
-  gap: 32px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-link-item {
-  color: #aaaaaa;
+.nav-link {
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+  font-weight: 600;
+  color: #a3a3a3;
+  letter-spacing: 0.5px;
   position: relative;
-  padding: 8px 0;
-  transition: color 0.25s ease;
+  transition: color 0.3s ease;
 }
 
-/* Clean micro hover accent line */
-.nav-link-item::after {
+.nav-link:hover {
+  color: #ffffff;
+}
+
+/* Subtle underlying glide node line */
+.nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
   width: 100%;
-  height: 2px;
-  background-color: #ffffff;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
+  height: 1px;
+  background-color: #D4AF37;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-link-item:hover {
-  color: #ffffff;
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
-.nav-link-item:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* RIGHT: Animated Rolling Dot CTA Button */
-.orbit-cta {
-  position: relative;
-  background: #121212;
-  color: #ffffff;
+/* --- THE CTA ENTRY COMPONENT --- */
+.cta-button-minimal {
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
+  color: #D4AF37;
+  border: 1px solid #D4AF37;
+  padding: 10px 22px;
+  border-radius: 4px; /* Rigid corners match the sharp page container style */
+  background: transparent;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 10px 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  overflow: visible;
-  transition: border-color 0.2s;
 }
 
-/* The rolling point dot tracking the border edge */
-.orbit-dot {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #ffffff;
-  top: -3px;
-  left: -3px;
-  offset-path: rect(0% 100% 100% 0% round 4px); /* Paths precisely around the border outline */
-  animation: orbitTrack 4s linear infinite;
+.cta-button-minimal:hover {
+  color: #0A0A0A;
+  background-color: #D4AF37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
 }
 
-@keyframes orbitTrack {
-  100% {
-    offset-distance: 100%;
-  }
-}
-
-.orbit-cta:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-/* Responsive Devices Layout */
-.desktop-only { display: flex; }
-.mobile-only { display: none; }
-
+/* --- RESPONSIVE MOBILE ADJUSTMENT SYSTEM --- */
 @media (max-width: 768px) {
-  .desktop-only { display: none; }
-  .mobile-only { display: flex; }
-
-  .nav-left { flex: 1; }
-
-  .nav-mobile-trigger {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px;
+  .navbar-capsule-wrapper {
+    padding: 16px 24px;
+  }
+  
+  .navbar-capsule-wrapper.is-compact {
+    padding: 12px 24px;
   }
 
-  .burger-bar {
-    width: 22px;
-    height: 2px;
-    background: #ffffff;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .burger-bar.open:nth-child(1) {
-    transform: translateY(4px) rotate(45deg);
-  }
-  .burger-bar.open:nth-child(2) {
-    transform: translateY(-4px) rotate(-45deg);
-  }
-
-  .nav-mobile-menu {
-    position: absolute;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    background: #121212;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-  }
-
-  .nav-mobile-menu.active {
-    max-height: 300px;
-  }
-
-  .mobile-links-list {
-    list-style: none;
-    padding: 20px 24px;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .mobile-links-list a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1rem;
-    display: block;
-  }
-
-  .mobile-cta-link {
-    background: #ffffff;
-    color: #121212 !important;
-    text-align: center;
-    padding: 12px;
-    font-weight: bold;
-    border-radius: 4px;
-    margin-top: 10px;
+  .navbar-links {
+    display: none; /* Safely strips content rows on small viewports */
   }
 }

@@ -8,7 +8,8 @@
   border-radius: 5px;      /* Slightly softer, premium rounded corners */
   overflow: hidden;
   border: 1px solid #333;   
-  background-color: #121212; 
+  /* background-color: #121212;  */
+  background: radial-gradient(circle at 50% 50%, #262216 0%, #0A0A0A 100%);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
