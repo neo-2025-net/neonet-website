@@ -34,7 +34,7 @@ function Portfolio() {
   const doubleProjects = [...premiumProjects, ...premiumProjects];
 
   return (
-    <section className="main-portfolio">
+    <section className="main-portfolio" id="portfolio">
       <div className="portfolio-section">
         <div className="portfolio-container">
           <span className="section-label">Selected Work</span>

@@ -11,18 +11,48 @@ export default function ContactForm() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-  };
+    setLoading(true);
+    setErrorMsg('');
 
-  
+    // REPLACE 'YOUR_FORMSPREE_ID' WITH THE ID YOU COPIED FROM FORMSPREE (e.g., xbjnkyoz)
+    const FORMSPREE_ID = 'xrenpoab'; 
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Name: formData.name,
+          Email: formData.email,
+          Service: formData.service,
+          Message: formData.message,
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        // Reset the form values
+        setFormData({ name: '', email: '', service: 'Development', message: '' });
+      } else {
+        setErrorMsg('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setErrorMsg('Network error. Check your connection.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="contact-kinetic-section" id="contact">
-      {/* Dynamic Animated Nebula Background Array */}
       <div className="kinetic-bg-glow upper-glow" />
       <div className="kinetic-bg-glow lower-glow" />
       <div className="grid-overlay-texture" />
@@ -41,14 +71,13 @@ export default function ContactForm() {
             <div>
               <span className="editorial-badge">Inquiries</span>
               <h2 className="editorial-title">
-                Let's build something <span className="gold-text-effect">legendary</span>.
+                LET'S BUILD SOMETHING <span className="gold-text-effect">LEGENDARY</span>.
               </h2>
               <p className="editorial-desc">
                 Have a vision or want to upgrade your current digital infrastructure? Drop us a line. We reply within 12 hours.
               </p>
             </div>
 
-            {/* Interactive Anchors */}
             <div className="editorial-anchor-stack">
               <div className="anchor-item">
                 <div className="anchor-icon-frame font-flash">⚡</div>
@@ -62,7 +91,7 @@ export default function ContactForm() {
                 <div className="anchor-icon-frame font-mail">✉️</div>
                 <div>
                   <h4 className="anchor-label">Direct Line</h4>
-                  <p className="anchor-value">hello@neonet.digital</p>
+                  <p className="anchor-value">start@neonet.website</p>
                 </div>
               </div>
             </div>
@@ -84,19 +113,25 @@ export default function ContactForm() {
                   animate={{ opacity: 1, scale: 1 }}
                 >
                   <div className="success-checkmark">✓</div>
-                  <h3>Message Secured</h3>
-                  <p>Our team is processing your infrastructure details.</p>
+                  <h3>Inquiry Transmitted</h3>
+                  <p>Message secured. Our architecture engine is processing your project guidelines.</p>
+                  <button 
+                    onClick={() => setSubmitted(false)} 
+                    className="mt-6 text-xs font-bold uppercase tracking-wider text-[#D4AF37] hover:underline bg-transparent border-none cursor-pointer"
+                  >
+                    Send another message
+                  </button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="tactile-form-element">
                   
-                  {/* Row 1: Name & Email */}
                   <div className="form-input-row">
                     <div className="input-field-group">
                       <label>Your Name</label>
                       <input
                         type="text"
                         required
+                        disabled={loading}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
@@ -109,6 +144,7 @@ export default function ContactForm() {
                       <input
                         type="email"
                         required
+                        disabled={loading}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@example.com"
@@ -117,11 +153,11 @@ export default function ContactForm() {
                     </div>
                   </div>
 
-                  {/* Row 2: Service Selection */}
                   <div className="input-field-group">
                     <label>What are you building?</label>
                     <div className="select-dropdown-wrapper">
                       <select
+                        disabled={loading}
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       >
@@ -132,12 +168,12 @@ export default function ContactForm() {
                     </div>
                   </div>
 
-                  {/* Row 3: Project Details */}
                   <div className="input-field-group">
                     <label>Project Scope & Details</label>
                     <textarea
                       rows={4}
                       required
+                      disabled={loading}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell us about your goals, timelines, or budget..."
@@ -145,9 +181,18 @@ export default function ContactForm() {
                     <div className="input-focus-line" />
                   </div>
 
-                  {/* Premium Kinetic Trigger Button */}
-                  <button type="submit" className="kinetic-submit-trigger">
-                    <span className="trigger-label">Launch Project Inquiry</span>
+                  {errorMsg && (
+                    <p className="text-red-500 text-xs font-semibold">{errorMsg}</p>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    disabled={loading}
+                    className="kinetic-submit-trigger"
+                  >
+                    <span className="trigger-label">
+                      {loading ? 'Transmitting Inbound Payload...' : 'Launch Project Inquiry'}
+                    </span>
                     <div className="trigger-shimmer-beam" />
                   </button>
 

@@ -10,7 +10,7 @@ function AboutUs() {
         {/* LEFT PANEL */}
         <div className="about-content-left">
           <span className="section-label">Who You Work With</span>
-          <h2>No agencies. No handoffs. Just results.</h2>
+          <h2>No middlemen. No handoffs. Just results.</h2>
           <p className="about-text">
             When you work with NeoNet, you deal directly with me—the founder, designer, and developer. 
             Unlike big agencies that hand your project off to account managers, every line of code and 

@@ -5,6 +5,15 @@ import GlassEffectCard from '../../ui/Glass-effect-card/Glass-effect-card';
 import ColorBends from '../../ui/background/ColorBends';
 import { HoverBorderGradient } from '../../ui/Button/hover-border-gradient';
 
+const scrolltoportfolio = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const portfolioSection = document.getElementById('portfolio');
+  if (portfolioSection) {
+    portfolioSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+}
 
 function hero_section() {
   return (
@@ -60,6 +69,7 @@ function hero_section() {
         containerClassName="rounded-full"
         as="button"
         className="bg-black text-white flex items-center space-x-2"
+        onClick={scrolltoportfolio}
       >
         <span>See Our Work</span>
       </HoverBorderGradient>

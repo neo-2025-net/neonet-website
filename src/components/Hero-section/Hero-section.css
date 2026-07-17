@@ -92,10 +92,13 @@ h1 {
   animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 0.8s;
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .hero-cta-wrapper:hover {
   transform: scale(1.03); /* Soft macro-interaction scaling */
+  cursor: pointer;
+
 }
 
 /* --- SOPHISTICATED LAYER OVERRIDES FOR DEEP GLASS STACK --- */

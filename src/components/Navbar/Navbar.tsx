@@ -30,6 +30,39 @@ function Navbar() {
     }
   };
 
+    const scrolltoservices = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  const scrolltoprocess = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const processSection = document.getElementById('process');
+    if (processSection) {
+      processSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  const scrolltoportfolio = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
   return (
     <nav className={`navbar-capsule-wrapper ${isScrolled ? 'is-compact' : ''}`}>
       <div className="navbar-container">
@@ -42,16 +75,18 @@ function Navbar() {
         {/* NAVIGATION LINKS */}
         <div className="navbar-links">
           <a href="#services" className="nav-link">Services</a>
+          <a href="#portfolio" className="nav-link">Portfolio</a>
           <a href="#process" className="nav-link">Process</a>
-          <a href="#work" className="nav-link">Work</a>
+          
         </div>
 
         {/* PREMIUM ACTION BUTTON */}
         <div className="navbar-action">
-          <a> <button onClick={handleScrollToContact} className="your-navbar-button-class"> 
+          <a> <button onClick={handleScrollToContact} className="cta-button-minimal"> 
             Let's Talk
             </button>
           </a>
+
         </div>
 
       </div>

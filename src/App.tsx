@@ -18,7 +18,7 @@ function App() {
         <Hero_section />
         <Services /> 
         <Portfolio />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <AboutUs />
         <HowWeWork />
         <ContactForm />

@@ -44,7 +44,7 @@ function Services() {
   };
 
   return (
-    <section className="main-services-frame">
+    <section className="main-services-frame" id="services">
       <div className="services-section">
         
         <div className='background-services'>

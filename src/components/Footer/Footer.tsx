@@ -2,7 +2,6 @@ import React from 'react';
 // import './Footer.css';
 import './footer-test.css';
 import DarkVeil from '../../ui/background/dark-veil';
-import SocialIcons from '../../ui/Social-icons/Social-icons';
 
 function Footer() {
   // This gets the current year automatically so your copyright never expires
@@ -40,7 +39,7 @@ function Footer() {
 
         <div className='background'>
         <DarkVeil
-          hueShift={1}
+          hueShift={100}
           noiseIntensity={0}
           scanlineIntensity={0}
           speed={1}
@@ -57,9 +56,15 @@ function Footer() {
           </div>
           <div className = 'footer-socials'>
             {/* <SocialIcons /> */}
-            <a href="#"><h2>Instagram ↗</h2></a>
-            <a href="#"><h2>Linkedin ↗</h2></a>
-            <a href="#"><h2>X ↗</h2></a>
+            <a href="https://www.instagram.com/neo_net_official/" target="_blank" rel="noopener noreferrer">
+              <h2>Instagram ↗</h2>
+            </a>
+            <a href="https://www.linkedin.com/company/neonetagency/" target="_blank" rel="noopener noreferrer">
+              <h2>Linkedin ↗</h2>
+            </a>
+            <a href="https://x.com/neo_net_" target="_blank" rel="noopener noreferrer">
+              <h2>X ↗</h2>
+            </a>
           </div>
         </div>
 

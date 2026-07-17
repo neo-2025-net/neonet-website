@@ -48,7 +48,7 @@ function HowWeWork() {
   }, []);
 
   return (
-    <section className="main-process-frame" ref={sectionRef}>
+    <section className="main-process-frame" ref={sectionRef} id="process">
       <div className="process-section">
         {/* Dynamic trigger class bound to the intersection observer state */}
         <div className={`process-container ${isIntersecting ? 'animate-trigger' : ''}`}>
