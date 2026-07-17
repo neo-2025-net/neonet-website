@@ -82,6 +82,8 @@ position: fixed;
   letter-spacing: 0.5px;
   position: relative;
   transition: color 0.3s ease;
+  background: transparent;
+  border: none;
 }
 
 .nav-link:hover {

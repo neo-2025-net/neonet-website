@@ -30,7 +30,7 @@ function Navbar() {
     }
   };
 
-    const scrolltoservices = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const scrolltoservices = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
@@ -41,7 +41,7 @@ function Navbar() {
     }
   }
 
-  const scrolltoprocess = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrolltoprocess = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const processSection = document.getElementById('process');
     if (processSection) {
@@ -52,7 +52,7 @@ function Navbar() {
     }
   }
 
-  const scrolltoportfolio = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrolltoportfolio = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const portfolioSection = document.getElementById('portfolio');
     if (portfolioSection) {
@@ -74,18 +74,20 @@ function Navbar() {
 
         {/* NAVIGATION LINKS */}
         <div className="navbar-links">
-          <a href="#services" className="nav-link">Services</a>
-          <a href="#portfolio" className="nav-link">Portfolio</a>
-          <a href="#process" className="nav-link">Process</a>
-          
+          {/* <a href="#services" className="nav-link">Services</a> */}
+          {/* <a href="#portfolio" className="nav-link">Portfolio</a> */}
+          {/* <a href="#process" className="nav-link">Process</a> */}
+          <button onClick={scrolltoservices} className="nav-link">Services</button>
+          <button onClick={scrolltoportfolio} className="nav-link">Portfolio</button>
+          <button onClick={scrolltoprocess} className="nav-link">Process</button>
         </div>
 
         {/* PREMIUM ACTION BUTTON */}
         <div className="navbar-action">
-          <a> <button onClick={handleScrollToContact} className="cta-button-minimal"> 
+          <button onClick={handleScrollToContact} className="cta-button-minimal"> 
             Let's Talk
             </button>
-          </a>
+          
 
         </div>
 

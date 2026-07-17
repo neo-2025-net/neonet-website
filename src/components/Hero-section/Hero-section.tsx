@@ -1,7 +1,7 @@
 import './Hero-section.css';
-import LightRays from '../../ui/background/Background';
-import { ShimmerButton } from '../../ui/Button/shimmer-button';
-import GlassEffectCard from '../../ui/Glass-effect-card/Glass-effect-card';
+// import LightRays from '../../ui/background/Background';
+// import { ShimmerButton } from '../../ui/Button/shimmer-button';
+// import GlassEffectCard from '../../ui/Glass-effect-card/Glass-effect-card';
 import ColorBends from '../../ui/background/ColorBends';
 import { HoverBorderGradient } from '../../ui/Button/hover-border-gradient';
 
@@ -15,7 +15,7 @@ const scrolltoportfolio = (e: React.MouseEvent<HTMLButtonElement>) => {
   }
 }
 
-function hero_section() {
+function HeroSection() {
   return (
     <div className="hero-section">
       {/* Dynamic Background Rays - Positioned cleanly behind content */}
@@ -49,7 +49,7 @@ function hero_section() {
   bandWidth={6}
   transparent
   autoRotate={0}
-  color="#D4AF37"
+  // color="#D4AF37"
   className="custom-rays"
 />
       {/* Foreground Content Stack */}
@@ -79,4 +79,4 @@ function hero_section() {
   );
 }
 
-export default hero_section;
+export default HeroSection;

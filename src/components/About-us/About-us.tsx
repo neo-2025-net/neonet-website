@@ -1,6 +1,6 @@
 import React from 'react';
 import './About-us.css';
-import Cubes from '../../ui/Cubes/Cubes.tsx';
+import Cubes from '../../ui/Cubes/Cubes';
 
 function AboutUs() {
   return (

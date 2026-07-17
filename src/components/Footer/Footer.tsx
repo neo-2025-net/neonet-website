@@ -52,7 +52,7 @@ function Footer() {
         <div className="footer-buttons">
           <div className='footer-contact'>
             <h1>Contact us</h1>
-            <a href="mailto:info@neonet.website"><h2>info@neonet.website ↗</h2></a>
+            <a href="mailto:start@neonet.agency"><h2>start@neonet.agency ↗</h2></a>
           </div>
           <div className = 'footer-socials'>
             {/* <SocialIcons /> */}

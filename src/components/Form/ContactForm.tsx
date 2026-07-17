@@ -91,7 +91,7 @@ export default function ContactForm() {
                 <div className="anchor-icon-frame font-mail">✉️</div>
                 <div>
                   <h4 className="anchor-label">Direct Line</h4>
-                  <p className="anchor-value">start@neonet.website</p>
+                  <p className="anchor-value">start@neonet.agency</p>
                 </div>
               </div>
             </div>

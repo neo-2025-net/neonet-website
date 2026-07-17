@@ -56,7 +56,7 @@ function Services() {
             hoverFillColor='#D4AF37'
             shape='square'
             hoverTrailAmount={0}
-            size={60}
+            // size={60}
           />
         </div>
 
