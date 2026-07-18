@@ -9,6 +9,8 @@ import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter } from 'react-router-dom';
 // import Testimonials from './components/Testimonial/Testimonials';
 import ContactForm from './components/Form/ContactForm';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
@@ -23,7 +25,10 @@ function App() {
         <HowWeWork />
         <ContactForm />
         <Footer />
+        <Analytics />
+        <SpeedInsights /> 
       </div>
+      
     </BrowserRouter>
   );
 }
