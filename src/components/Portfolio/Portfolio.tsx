@@ -10,20 +10,6 @@ const premiumProjects = [
     href: 'https://hvac1.neonet.agency'
   },
   {
-    title: 'HVAC Repair and Maintenance Service',
-    tags: ['Link'],
-    description: 'A concept site for a residential HVAC repair service — built to highlight fast booking and service area coverage.',
-    imgUrl: '/hvac-2.png', // Fixed: Absolute public path
-    href: 'https://hvac2.neonet.agency'
-  },
-  {
-    title: 'Luxe Interior Design Studio',
-    tags: ['Link'],
-    description: 'A concept site for the modern Interior Design Studio — showcasing a the design and the services offered by the studio.',
-    imgUrl: '/interior-1.png', // Fixed: Absolute public path
-    href: 'https://interior1.neonet.agency'
-  },
-  {
     title: 'Concept Interior Design Studio',
     tags: ['Link'],
     description: 'A concept site for a modern interior design studio — showcasing a minimalist aesthetic with project categories by room type.',
@@ -36,6 +22,20 @@ const premiumProjects = [
     description: 'A concept site for a boutique cake shop — designed around visual menu browsing and easy custom-order requests.',
     imgUrl: '/cakeshop.png', // Fixed: Absolute public path
     href: 'https://cakeshop.neonet.agency'
+  },
+  {
+    title: 'HVAC Repair and Maintenance Service',
+    tags: ['Link'],
+    description: 'A concept site for a residential HVAC repair service — built to highlight fast booking and service area coverage.',
+    imgUrl: '/hvac-2.png', // Fixed: Absolute public path
+    href: 'https://hvac2.neonet.agency'
+  },
+  {
+    title: 'Luxe Interior Design Studio',
+    tags: ['Link'],
+    description: 'A concept site for the modern Interior Design Studio — showcasing a the design and the services offered by the studio.',
+    imgUrl: '/interior-1.png', // Fixed: Absolute public path
+    href: 'https://interior1.neonet.agency'
   }
 ];
 
