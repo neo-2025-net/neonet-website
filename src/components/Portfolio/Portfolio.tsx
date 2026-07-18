@@ -3,34 +3,44 @@ import './Portfolio.css';
 
 const premiumProjects = [
   {
-    title: 'Bespoke E-Commerce Architecture',
-    tags: ['E-Commerce', 'TypeScript', 'Next.js'],
-    description: 'Custom headless storefront engineered for lightning-fast conversions.',
-    imgUrl: 'https://via.placeholder.com/600x400/1a1a1a/ffffff?text=E-Commerce+Infrastructure'
+    title: 'HVAC Repair Service',
+    tags: ['Link'],
+    description: 'A concept site for a residential HVAC repair service — built to highlight fast booking and service area coverage.',
+    imgUrl: '/hvac-1.png', // Fixed: Absolute public path
+    href: 'https://hvac1.neonet.agency'
   },
   {
-    title: 'Enterprise Analytics Suite',
-    tags: ['React', 'Tailwind', 'UI/UX'],
-    description: 'High-performance real-time tracking dashboard built for scalability.',
-    imgUrl: 'https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Analytics+Suite'
+    title: 'HVAC Repair and Maintenance Service',
+    tags: ['Link'],
+    description: 'A concept site for a residential HVAC repair service — built to highlight fast booking and service area coverage.',
+    imgUrl: '/hvac-2.png', // Fixed: Absolute public path
+    href: 'https://hvac2.neonet.agency'
   },
   {
-    title: 'Bespoke Brand Ecosystem',
-    tags: ['Branding', 'Web3', 'Design'],
-    description: 'Immersive digital assets and style guidelines built from scratch.',
-    imgUrl: 'https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Brand+Ecosystem'
+    title: 'Luxe Interior Design Studio',
+    tags: ['Link'],
+    description: 'A concept site for the modern Interior Design Studio — showcasing a the design and the services offered by the studio.',
+    imgUrl: '/interior-1.png', // Fixed: Absolute public path
+    href: 'https://interior1.neonet.agency'
   },
   {
-    title: 'Premium SaaS Infrastructure',
-    tags: ['Node.js', 'React', 'Cloud'],
-    description: 'Highly secure, scalable digital engine built with modern code.',
-    imgUrl: 'https://via.placeholder.com/600x400/1a1a1a/ffffff?text=SaaS+Infrastructure'
+    title: 'Concept Interior Design Studio',
+    tags: ['Link'],
+    description: 'A concept site for a modern interior design studio — showcasing a minimalist aesthetic with project categories by room type.',
+    imgUrl: '/interior-2.png', // Fixed: Absolute public path
+    href: 'https://interior2.neonet.agency'
+  },
+  {
+    title: 'Butter and Bliss Cake Shop',
+    tags: ['Link'],
+    description: 'A concept site for a boutique cake shop — designed around visual menu browsing and easy custom-order requests.',
+    imgUrl: '/cakeshop.png', // Fixed: Absolute public path
+    href: 'https://cakeshop.neonet.agency'
   }
 ];
 
 function Portfolio() {
-  // To create a perfect infinite loop track visually, we map over the array twice.
-  // This ensures that as item 4 slides away, item 1 is already right behind it.
+  // Infinite loop layout duplicate structure
   const doubleProjects = [...premiumProjects, ...premiumProjects];
 
   return (
@@ -53,7 +63,15 @@ function Portfolio() {
                 <div className="project-info">
                   <div className="project-tags">
                     {project.tags.map((tag, tIndex) => (
-                      <span key={tIndex} className="tag">{tag}</span>
+                      <a 
+                        className="atag" 
+                        key={tIndex} 
+                        href={project.href} // Fixed: Directly accesses outer project parameter
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <span className="tag">{tag}</span>
+                      </a>
                     ))}
                   </div>
                   <h3>{project.title}</h3>

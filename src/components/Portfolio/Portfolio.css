@@ -91,11 +91,13 @@
   height: 240px;
   width: 100%;
   overflow: hidden;
+  /* padding: 5px; */
   border-bottom: 1px solid #262626;
 }
 
 .project-img-content {
   width: 100%;
+  /* padding: 5px; */
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
@@ -115,6 +117,10 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 16px;
+}
+
+.atag{
+  text-decoration: none;
 }
 
 .tag {
